@@ -77,7 +77,7 @@ class __TwigTemplate_42068d842bb07cd3475a2aa42dfd3982e4b4f16ee7e524f17c32876a17a
          <img src=\"https://webstockreview.net/images/gem-clipart-svg-3.png\" width=\"40%\">
       </div>
    </header>
-   
+
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -113,7 +113,7 @@ class __TwigTemplate_42068d842bb07cd3475a2aa42dfd3982e4b4f16ee7e524f17c32876a17a
          <img src=\"https://webstockreview.net/images/gem-clipart-svg-3.png\" width=\"40%\">
       </div>
    </header>
-   
+
 {% endblock %}
 ", "main/home.html.twig", "/home/bastien/checkout/tp-eval/templates/main/home.html.twig");
     }
