@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MainController!{% endblock %}
+
+{% block body %}
+
+    <h1 class="m-2">Factures des 30 derniers jours</h1>
+
+    <table class="table table-striped">
+        <thead class="thead-light">
+        <tr>
+            <th scope="col">Stock vendu</th>
+            <th scope="col">Date</th>
+            <th scope="col">Client</th>
+            <th scope="col">Total HT</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for order in orders %}
+            <tr>
+                <td>
+                    <ul class="mb-0">
+                        {% for name, value in order.itemsPurchased %}
+                            <li>{{ value }} {{ name }} ({{ gem_prices[name]}}€HT l'unité)</li>
+                        {% endfor %}
+                    </ul>
+                </td>
+                <td>{{ order.date|date('Y-m -d') }}</td>
+                <td>{{ order.customerLastname }} {{ order.customerFirstname }}</td>
+                <td>{{ order.total }}€</td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+{% endblock %}
