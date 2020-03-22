@@ -8,7 +8,7 @@ Les achats des clients y sont simplement répertoriés.
 Ce projet n'utilise pas l'ORM, mais une génération aléatoire d'objets de facture.
 Vous n'avez pas à travailler dans generateRandomOrders() du OrderController (il remplace ici un appel en base de donnée pour les besoins du TP).
 
-Le projet inclut toutes les dépendances, il suffit de le télécharger, puis éxécuter la commande suivante dans le dossier
+Le projet inclut toutes les dépendances, il suffit de le télécharger, puis exécuter la commande suivante dans le dossier
 
 `php -S localhost:8000 public/index.php`
 
