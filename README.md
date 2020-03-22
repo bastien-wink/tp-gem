@@ -1,6 +1,11 @@
+# Sujet
+Voici le back office d'une petite boutique de pierres précieuses. 
+Les achats des clients y sont simplement répertoriés. 
+
+
 # Précisions
 
-Ce projet n'utilise pas l'ORM, mais une génération aléatoire d'objets.
+Ce projet n'utilise pas l'ORM, mais une génération aléatoire d'objets de facture.
 Vous n'avez pas à travailler dans generateRandomOrders() du OrderController (il remplace ici un appel en base de donnée pour les besoins du TP).
 
 Le projet inclu toutes les dépendances, il suffit de le télécharger, puis éxécuter la commande suivante dans le dossier
