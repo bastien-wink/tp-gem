@@ -71,8 +71,20 @@ class __TwigTemplate_e6ae760d6bba6b41b04cbc5e9127e1d8f55ba9ecc22345bd4b880f82d23
 
         // line 6
         echo "
-    <h1 class=\"m-2\">Factures des 30 derniers jours</h1>
+    <h1 class=\"m-2\">Factures des 30 derniers jours (total : ";
+        // line 7
+        echo twig_escape_filter($this->env, (isset($context["totalHTPeriod"]) || array_key_exists("totalHTPeriod", $context) ? $context["totalHTPeriod"] : (function () { throw new RuntimeError('Variable "totalHTPeriod" does not exist.', 7, $this->source); })()), "html", null, true);
+        echo "€)</h1>
 
+    ";
+        // line 10
+        echo "    ";
+        // line 11
+        echo "        ";
+        // line 12
+        echo "    ";
+        // line 13
+        echo "
     <table class=\"table table-striped\">
         <thead class=\"thead-light\">
         <tr>
@@ -80,53 +92,58 @@ class __TwigTemplate_e6ae760d6bba6b41b04cbc5e9127e1d8f55ba9ecc22345bd4b880f82d23
             <th scope=\"col\">Date</th>
             <th scope=\"col\">Client</th>
             <th scope=\"col\">Total facturé HT</th>
+            <th scope=\"col\">Total facturé TTC</th>
         </tr>
         </thead>
         <tbody>
 
         ";
-        // line 20
+        // line 26
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["orders"]) || array_key_exists("orders", $context) ? $context["orders"] : (function () { throw new RuntimeError('Variable "orders" does not exist.', 20, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["orders"]) || array_key_exists("orders", $context) ? $context["orders"] : (function () { throw new RuntimeError('Variable "orders" does not exist.', 26, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["order"]) {
-            // line 21
+            // line 27
             echo "            <tr>
                 <td>
                     <ul class=\"mb-0\">
                         ";
-            // line 24
+            // line 30
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, $context["order"], "itemsPurchased", [], "any", false, false, false, 24));
+            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, $context["order"], "itemsPurchased", [], "any", false, false, false, 30));
             foreach ($context['_seq'] as $context["name"] => $context["value"]) {
-                // line 25
+                // line 31
                 echo "                            <li>";
                 echo twig_escape_filter($this->env, $context["value"], "html", null, true);
                 echo " ";
                 echo twig_escape_filter($this->env, $context["name"], "html", null, true);
                 echo " (";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["gem_prices"]) || array_key_exists("gem_prices", $context) ? $context["gem_prices"] : (function () { throw new RuntimeError('Variable "gem_prices" does not exist.', 25, $this->source); })()), $context["name"], [], "array", false, false, false, 25), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["gem_prices"]) || array_key_exists("gem_prices", $context) ? $context["gem_prices"] : (function () { throw new RuntimeError('Variable "gem_prices" does not exist.', 31, $this->source); })()), $context["name"], [], "array", false, false, false, 31), "html", null, true);
                 echo "€HT l'unité)</li>
                         ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['name'], $context['value'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 27
+            // line 33
             echo "                    </ul>
                 </td>
                 <td>";
-            // line 29
-            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["order"], "date", [], "any", false, false, false, 29), "Y-m -d"), "html", null, true);
+            // line 35
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["order"], "date", [], "any", false, false, false, 35), "Y-m-d H:i:s"), "html", null, true);
             echo "</td>
                 <td>";
-            // line 30
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["order"], "customerLastname", [], "any", false, false, false, 30), "html", null, true);
+            // line 36
+            echo twig_escape_filter($this->env, twig_upper_filter($this->env, twig_get_attribute($this->env, $this->source, $context["order"], "customerLastname", [], "any", false, false, false, 36)), "html", null, true);
             echo " ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["order"], "customerFirstname", [], "any", false, false, false, 30), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["order"], "customerFirstname", [], "any", false, false, false, 36), "html", null, true);
             echo "</td>
                 <td>";
-            // line 31
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["order"], "total", [], "any", false, false, false, 31), "html", null, true);
+            // line 37
+            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["order"], "total", [], "any", false, false, false, 37), 2, ",", "."), "html", null, true);
+            echo "€</td>
+                <td>";
+            // line 38
+            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, (twig_get_attribute($this->env, $this->source, $context["order"], "total", [], "any", false, false, false, 38) * 1.2), 2, ",", "."), "html", null, true);
             echo "€</td>
             </tr>
         ";
@@ -134,7 +151,7 @@ class __TwigTemplate_e6ae760d6bba6b41b04cbc5e9127e1d8f55ba9ecc22345bd4b880f82d23
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['order'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 34
+        // line 41
         echo "
         </tbody>
     </table>
@@ -156,7 +173,7 @@ class __TwigTemplate_e6ae760d6bba6b41b04cbc5e9127e1d8f55ba9ecc22345bd4b880f82d23
 
     public function getDebugInfo()
     {
-        return array (  138 => 34,  129 => 31,  123 => 30,  119 => 29,  115 => 27,  102 => 25,  98 => 24,  93 => 21,  89 => 20,  73 => 6,  66 => 5,  53 => 3,  36 => 1,);
+        return array (  155 => 41,  146 => 38,  142 => 37,  136 => 36,  132 => 35,  128 => 33,  115 => 31,  111 => 30,  106 => 27,  102 => 26,  87 => 13,  85 => 12,  83 => 11,  81 => 10,  76 => 7,  73 => 6,  66 => 5,  53 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -167,7 +184,12 @@ class __TwigTemplate_e6ae760d6bba6b41b04cbc5e9127e1d8f55ba9ecc22345bd4b880f82d23
 
 {% block body %}
 
-    <h1 class=\"m-2\">Factures des 30 derniers jours</h1>
+    <h1 class=\"m-2\">Factures des 30 derniers jours (total : {{ totalHTPeriod }}€)</h1>
+
+    {#{% set totalHT = 0 %}#}
+    {#{% for order in order %}#}
+        {#{% set totalHT = totalHT + order.total %}#}
+    {#{% endfor %}#}
 
     <table class=\"table table-striped\">
         <thead class=\"thead-light\">
@@ -176,6 +198,7 @@ class __TwigTemplate_e6ae760d6bba6b41b04cbc5e9127e1d8f55ba9ecc22345bd4b880f82d23
             <th scope=\"col\">Date</th>
             <th scope=\"col\">Client</th>
             <th scope=\"col\">Total facturé HT</th>
+            <th scope=\"col\">Total facturé TTC</th>
         </tr>
         </thead>
         <tbody>
@@ -189,9 +212,10 @@ class __TwigTemplate_e6ae760d6bba6b41b04cbc5e9127e1d8f55ba9ecc22345bd4b880f82d23
                         {% endfor %}
                     </ul>
                 </td>
-                <td>{{ order.date|date('Y-m -d') }}</td>
-                <td>{{ order.customerLastname }} {{ order.customerFirstname }}</td>
-                <td>{{ order.total }}€</td>
+                <td>{{ order.date|date('Y-m-d H:i:s') }}</td>
+                <td>{{ order.customerLastname | upper }} {{ order.customerFirstname }}</td>
+                <td>{{ order.total |number_format(2, \",\", \".\") }}€</td>
+                <td>{{ (order.total * 1.2)|number_format(2, \",\", \".\") }}€</td>
             </tr>
         {% endfor %}
 

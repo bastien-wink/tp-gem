@@ -6,7 +6,7 @@
 use Symfony\Component\DependencyInjection\Dumper\Preloader;
 
 require dirname(__DIR__, 3).'/vendor/autoload.php';
-require __DIR__.'/ContainerClIN3dn/App_KernelDevDebugContainer.php';
+require __DIR__.'/ContainerJgi20nb/App_KernelDevDebugContainer.php';
 
 $classes = [];
 $classes[] = 'Symfony\Component\HttpKernel\EventListener\ResponseListener';

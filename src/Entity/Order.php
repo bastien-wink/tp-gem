@@ -26,7 +26,7 @@ class Order
     /**
      * @var float
      */
-    private $total =0;
+    private $total = 0;
 
     public function setDate(\DateTime $date): Order
     {

@@ -19,9 +19,16 @@ class OrderController extends AbstractController
 
         $orders = $this->generateRandomOrders(50);
 
+        $totalHTPeriod = 0;
+        foreach ($orders as $order) {
+            //$totalHTPeriod = $totalHTPeriod + $order->getTotal();
+            $totalHTPeriod += $order->getTotal();
+        }
+
         return $this->render('order/list.html.twig', [
             'orders' => $orders,
             'gem_prices' => GemService::GEM_PRICES,
+            'totalHTPeriod' => $totalHTPeriod
         ]);
     }
 

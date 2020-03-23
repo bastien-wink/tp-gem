@@ -4,7 +4,12 @@
 
 {% block body %}
 
-    <h1 class="m-2">Factures des 30 derniers jours</h1>
+    <h1 class="m-2">Factures des 30 derniers jours (total : {{ totalHTPeriod }}€)</h1>
+
+    {#{% set totalHT = 0 %}#}
+    {#{% for order in order %}#}
+        {#{% set totalHT = totalHT + order.total %}#}
+    {#{% endfor %}#}
 
     <table class="table table-striped">
         <thead class="thead-light">
@@ -13,6 +18,7 @@
             <th scope="col">Date</th>
             <th scope="col">Client</th>
             <th scope="col">Total facturé HT</th>
+            <th scope="col">Total facturé TTC</th>
         </tr>
         </thead>
         <tbody>
@@ -26,9 +32,10 @@
                         {% endfor %}
                     </ul>
                 </td>
-                <td>{{ order.date|date('Y-m -d') }}</td>
-                <td>{{ order.customerLastname }} {{ order.customerFirstname }}</td>
-                <td>{{ order.total }}€</td>
+                <td>{{ order.date|date('Y-m-d H:i:s') }}</td>
+                <td>{{ order.customerLastname | upper }} {{ order.customerFirstname }}</td>
+                <td>{{ order.total |number_format(2, ",", ".") }}€</td>
+                <td>{{ (order.total * 1.2)|number_format(2, ",", ".") }}€</td>
             </tr>
         {% endfor %}
 
