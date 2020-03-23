@@ -79,7 +79,7 @@ class __TwigTemplate_e6ae760d6bba6b41b04cbc5e9127e1d8f55ba9ecc22345bd4b880f82d23
             <th scope=\"col\">Stock vendu</th>
             <th scope=\"col\">Date</th>
             <th scope=\"col\">Client</th>
-            <th scope=\"col\">Total HT</th>
+            <th scope=\"col\">Total facturé HT</th>
         </tr>
         </thead>
         <tbody>
@@ -175,7 +175,7 @@ class __TwigTemplate_e6ae760d6bba6b41b04cbc5e9127e1d8f55ba9ecc22345bd4b880f82d23
             <th scope=\"col\">Stock vendu</th>
             <th scope=\"col\">Date</th>
             <th scope=\"col\">Client</th>
-            <th scope=\"col\">Total HT</th>
+            <th scope=\"col\">Total facturé HT</th>
         </tr>
         </thead>
         <tbody>

@@ -18,6 +18,7 @@ class OrderController extends AbstractController
         //dump(GemService::GEM_PRICES);
 
         $orders = $this->generateRandomOrders(50);
+
         return $this->render('order/list.html.twig', [
             'orders' => $orders,
             'gem_prices' => GemService::GEM_PRICES,
